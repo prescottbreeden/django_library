@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Books & Authors</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
+</head>
+<body>
+  <div class="book">
+    <h2>Add a Book</h2> 
+    <form action="addbook" method="POST" class="book__form">
+      {% csrf_token %}
+      <div class="book__form--row">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+      </div>
+      <div class="book__form--row">
+        <label for="firstname">Author First Name</label>
+        <input type="text" name="firstname" id="firstname">
+      </div>
+      <div class="book__form--row">
+        <label for="lastname">Author Last Name</label>
+        <input type="text" name="lastname" id="lastname">
+      </div>
+      <div class="book__form--row">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+      </div>
+      <div class="book__form--row">
+        <label for="publisher">Publisher</label>
+        <select name="publisher" id="publisher">
+          {% for pub in publishers %}
+          <option value="{{pub.id}}">{{pub.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button>Add Book</button>
+    </form>
+  </div>
+  <div class="book">
+    <h2>Add a Publisher</h2> 
+    <form action="addpublisher" method="POST" class="book__form">
+      {% csrf_token %}
+      <div class="book__form--row">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="title">
+      </div>
+      <button>Add Publisher</button>
+    </form>
+  </div>
+  <div class="sidebar">
+
+  <div class="allbooks">
+    <h4>All Books</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{book.id}}</td>
+          <td>{{book.title}}</td>
+          <td><a href="books/{{book.id}}">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="publishers">
+    <h4>All Publishers</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pub in publishers %}
+        <tr>
+          <td>{{pub.id}}</td>
+          <td>{{pub.name}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+</html>

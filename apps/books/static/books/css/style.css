@@ -1,0 +1,36 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 3rem;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.book__form {
+  box-sizing: border-box;
+  border: 1px dashed red;
+  padding: 2rem;
+}
+
+.book__form--row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.allbooks table {
+  margin-top: 3rem;
+  border: 1px dashed green;
+  width: 30rem;
+  text-align: center;
+}
+
+.publishers table {
+  margin-top: 3rem;
+  border: 1px dashed blue;
+  width: 30rem;
+  text-align: center;
+
+}

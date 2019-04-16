@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Book View</title>
+</head>
+<body>
+  <h4>{{book.title}}</h4>  
+  <h4>{{book.author.first_name}} {{book.author.last_name}}j</h4>  
+  <h4>{{book.description}}</h4>  
+  {% for pub in book.publishers.all %}
+    <h5>{{pub.name}}</h5>
+  {% endfor %}
+</body>
+</html>
